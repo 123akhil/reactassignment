@@ -6,7 +6,7 @@ import TodoHeader from "./TodoHeader";
 // import { useEffect } from "react";
 // import { getAllTodos } from "../slices/todosSlice";
 
-const Todos = () => {
+const Todos = ({ setUserDisplay }) => {
   //   const todos = useSelector(getAllTodos);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -54,7 +54,10 @@ const Todos = () => {
               <th className="tablebasic">Action</th>
             </tr>
           </thead>
-          <TableRow todos={searchTerm.length < 1 ? todos : searchResults} />
+          <TableRow
+            setUserDisplay={setUserDisplay}
+            todos={searchTerm.length < 1 ? todos : searchResults}
+          />
         </table>
       </div>
     </div>

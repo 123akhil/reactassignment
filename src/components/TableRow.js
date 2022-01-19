@@ -1,4 +1,7 @@
-const TableRow = ({ todos }) => {
+const TableRow = ({ setUserDisplay, todos }) => {
+  const viewUser = () => {
+    setUserDisplay(true);
+  };
   return (
     <tbody>
       {todos.length > 0
@@ -9,7 +12,10 @@ const TableRow = ({ todos }) => {
                 <td className="tablebasic">{todo.title}</td>
                 <td className="tablebasic">{todo.completed ? "Yes" : "No"}</td>
                 <td className="tablebasic">
-                  <button className="border-black text-lg border-2 px-2 py-1 font-semibold hover:bg-gray-200">
+                  <button
+                    onClick={viewUser}
+                    className="border-black text-lg border-2 px-2 py-1 font-semibold hover:bg-gray-200"
+                  >
                     View User
                   </button>
                 </td>
