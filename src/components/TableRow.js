@@ -3,6 +3,7 @@ import UserButton from "./UserButton";
 const TableRow = ({ setUserDisplay, todos }) => {
   return (
     <tbody>
+      {/* slicing top 3  todos and mapping */}
       {todos.length > 0
         ? todos.slice(0, 3).map(({ id, title, completed, userId }) => {
             return (

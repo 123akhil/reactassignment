@@ -6,6 +6,8 @@ const initialState = {
   todoTitle: "",
 };
 
+
+//Actions
 const todosSlice = createSlice({
     name: "user",
     initialState,
@@ -22,11 +24,12 @@ const todosSlice = createSlice({
     },
 });
 
-// export const { addToBasket, removeFromBasket } = todosSlice.actions;
 export const { viewUser } = todosSlice.actions;
 export const { viewTodoid } = todosSlice.actions;
 export const { viewTodotitle } = todosSlice.actions;
-//Selectors - This is how we pull information from the Global Store slice
+
+
+//Selectors 
 export const selectUserId = (state) => state.user.userId;
 export const selectTodoId = (state) => state.user.todoId;
 export const selectTodoTitle = (state) => state.user.todoTitle;

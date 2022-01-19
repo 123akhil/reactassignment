@@ -9,9 +9,10 @@ import {
 const UserDetails = () => {
   const [user, setUser] = useState([]);
   const userId = useSelector(selectUserId); //to grab(pull) the userId from global store
-  const todoId = useSelector(selectTodoId);
-  const todoTitle = useSelector(selectTodoTitle);
+  const todoId = useSelector(selectTodoId); //to grab(pull) the TodoId from global store
+  const todoTitle = useSelector(selectTodoTitle); //to grab(pull) the TodoTitle from global store
 
+  //getting users by there userId
   const getUser = async () => {
     const response = await axios.get(
       `https://jsonplaceholder.typicode.com/users/${userId}`
