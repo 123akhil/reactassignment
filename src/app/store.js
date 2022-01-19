@@ -4,6 +4,6 @@ import todosReducer from "../slices/todosSlice";
 //The Global store
 export const store = configureStore({
   reducer: {
-    todos: todosReducer,
+    user: todosReducer,
   },
 });

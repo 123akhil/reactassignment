@@ -1,23 +1,23 @@
+import UserButton from "./UserButton";
+
 const TableRow = ({ setUserDisplay, todos }) => {
-  const viewUser = () => {
-    setUserDisplay(true);
-  };
   return (
     <tbody>
       {todos.length > 0
-        ? todos.slice(0, 3).map((todo) => {
+        ? todos.slice(0, 3).map(({ id, title, completed, userId }) => {
             return (
               <tr>
-                <td className="tablebasic">{todo.id}</td>
-                <td className="tablebasic">{todo.title}</td>
-                <td className="tablebasic">{todo.completed ? "Yes" : "No"}</td>
+                <td className="tablebasic">{id}</td>
+                <td className="tablebasic">{title}</td>
+                <td className="tablebasic">{completed ? "Yes" : "No"}</td>
                 <td className="tablebasic">
-                  <button
-                    onClick={viewUser}
-                    className="border-black text-lg border-2 px-2 py-1 font-semibold hover:bg-gray-200"
-                  >
-                    View User
-                  </button>
+                  <UserButton
+                    key={userId}
+                    id={id}
+                    title={title}
+                    userId={userId}
+                    setUserDisplay={setUserDisplay}
+                  />
                 </td>
               </tr>
             );

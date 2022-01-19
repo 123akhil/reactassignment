@@ -1,45 +1,34 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from "@reduxjs/toolkit";
 
-export const fetchAsyncTodos = createAsyncThunk(
-    "todos/fetchAsyncTodos",
-    async () => {
-      const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/todos/1"
-      );
-      return response.data;
-    }
-  );
 const initialState = {
-  todos: {},
+  userId: null,
+  todoId: null,
+  todoTitle: "",
 };
 
 const todosSlice = createSlice({
-    name: "todos",
+    name: "user",
     initialState,
-    // reducers: {
-    //   removeSelectedMovieOrShow: (state) => {
-    //     state.selectMovieOrShow = {};
-    //   },
-    // },
     reducers: {
-      [fetchAsyncTodos.pending]: () => {
-        console.log("Pending");
+      viewUser: (state, action) => {
+        state.userId = action.payload.userId       
       },
-      [fetchAsyncTodos.fulfilled]: (state, { payload }) => {
-        console.log("Fetched Successfully!");
-        return { ...state, todos: payload };
+      viewTodoid: (state, action) => {
+        state.todoId = action.payload.todoId       
       },
-      [fetchAsyncTodos.rejected]: () => {
-        console.log("Rejected!");
-      },
+      viewTodotitle: (state, action) => {
+        state.todoTitle = action.payload.todoTitle       
+      }
     },
 });
 
 // export const { addToBasket, removeFromBasket } = todosSlice.actions;
-
+export const { viewUser } = todosSlice.actions;
+export const { viewTodoid } = todosSlice.actions;
+export const { viewTodotitle } = todosSlice.actions;
 //Selectors - This is how we pull information from the Global Store slice
-
-export const getAllTodos = (state) => state.todos.todos;
+export const selectUserId = (state) => state.user.userId;
+export const selectTodoId = (state) => state.user.todoId;
+export const selectTodoTitle = (state) => state.user.todoTitle;
 
 export default todosSlice.reducer;
