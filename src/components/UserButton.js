@@ -30,7 +30,7 @@ const UserButton = ({ setUserDisplay, userId, id, title }) => {
         onClick={selectUser}
         className="border-black text-lg border-2 px-2 py-1 font-semibold hover:bg-gray-200"
       >
-        View User{userId}
+        View User
       </button>
     </div>
   );
